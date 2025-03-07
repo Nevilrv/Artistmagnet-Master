@@ -19,6 +19,8 @@ dependencies:
   flutter_svg: ^2.0.16
   get_cli: ^1.9.1
   image_picker: ^1.1.2
+  file_picker: ^9.0.2
+  syncfusion_flutter_datagrid: ^28.2.7
 
 dev_dependencies:
   flutter_test:

@@ -16,11 +16,15 @@ class AccountSettingView extends GetView<AccountSettingController> {
     final w = MediaQuery.of(context).size.width;
     final h = MediaQuery.of(context).size.height;
     return Scaffold(
+        backgroundColor: AppColors.whiteColor,
         appBar: AppBar(
           backgroundColor: AppColors.whiteColor,
           surfaceTintColor: AppColors.transparentColor,
-          title: Text(AppString.accountSetting),
-          titleTextStyle: AppTextStyle.regularBlack14,
+          shadowColor: AppColors.greyColor,
+          elevation: 4,
+          centerTitle: true,
+          title: const Text(AppString.accountSetting),
+          titleTextStyle: AppTextStyle.regularBlack16,
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: w * 0.05),
@@ -48,14 +52,7 @@ class AccountSettingView extends GetView<AccountSettingController> {
                         decoration: BoxDecoration(
                           color: AppColors.redColor,
                           borderRadius: BorderRadius.circular(6),
-                          // gradient: LinearGradient(
-                          //     colors: [
-                          //       AppColors.whiteColor,
-                          //       AppColors.redColor2,
-                          //       AppColors.redColor2,
-                          //     ],
-                          //     begin: Alignment.topCenter,
-                          //     end: Alignment.bottomCenter),
+                          gradient: AppColors.redColorGradient,
                         ),
                         child: Text(
                           AppString.continueTxt,
@@ -235,24 +232,9 @@ class AccountSettingView extends GetView<AccountSettingController> {
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: w * 0.020, vertical: h * 0.010),
                     decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: AppColors.greyColor2.withValues(alpha: 0.70),
-                          offset: Offset(3, 3), // Shadow only at the bottom
-                          spreadRadius: 0,
-                          blurRadius: 0, // Adjust for a softer shadow
-                        ),
-                      ],
                       color: AppColors.redColor,
                       borderRadius: BorderRadius.circular(6),
-                      // gradient: LinearGradient(
-                      //     colors: [
-                      //       AppColors.whiteColor,
-                      //       AppColors.redColor2,
-                      //       AppColors.redColor2,
-                      //     ],
-                      //     begin: Alignment.topCenter,
-                      //     end: Alignment.bottomCenter),
+                      gradient: AppColors.redColorGradient,
                     ),
                     child: Text(
                       AppString.updateAccountSetting,

@@ -69,7 +69,10 @@ class CommonTextField extends StatelessWidget {
   final TextStyle? hintStyle;
   final FocusNode? focusNode;
   final double? radius;
-
+  final int? maxLine;
+  final bool? isReadOnly;
+  final void Function()? onTap;
+  final void Function(String)? onChanged;
   const CommonTextField(
       {super.key,
       this.keyboardType,
@@ -84,7 +87,11 @@ class CommonTextField extends StatelessWidget {
       this.radius = 0,
       this.hintText = "",
       this.hintStyle,
-      this.width});
+      this.width,
+      this.maxLine,
+      this.isReadOnly,
+      this.onTap,
+      this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -92,19 +99,26 @@ class CommonTextField extends StatelessWidget {
     final w = MediaQuery.of(context).size.width;
     return Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(4)),
-        height: h * 0.050,
+        // height: h * 0.050,
         width: width ?? double.infinity,
         child: TextFormField(
+          onChanged: onChanged,
+          onTap: onTap,
+          controller: controller,
           style: AppTextStyle.regularBlack12,
           cursorColor: AppColors.blackColor,
           cursorWidth: 1,
+          readOnly: isReadOnly ?? false,
+          maxLines: maxLine,
           decoration: InputDecoration(
+              isDense: true,
+              contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               hintStyle: AppTextStyle.regularBlack12,
               hintText: hintText,
               filled: true,
               fillColor: AppColors.lightGrey,
-              focusedBorder: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(0)),
-              enabledBorder: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(0))),
+              focusedBorder: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(4)),
+              enabledBorder: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(4))),
         ));
   }
 }

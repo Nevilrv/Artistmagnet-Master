@@ -6,7 +6,7 @@ class AppAssets {
   static const String manImg = "$imagePath/manImg.png";
   static const String onBording3 = "$imagePath/onBording3.png";
   static const String gallery = "$imagePath/gallery.jpg";
-  static const String videoIcon = "$imagePath/vedioIcon.jpg";
+  static const String videoIcon = "$imagePath/videoIcon.jpg";
 
   ///svg
 

@@ -87,6 +87,7 @@ class AppString {
   static const String productionMember = " Production Member";
   static const String performingArtist = " Performing Artist";
   static const String resumeType = "Resume Type";
+
   static const String manageResume = "Manage Resumes";
   static const String emailUsAtAdminTxt =
       "Email us at admin@artistmagnet.com after you've completed your payment for instructions on how to have us build your Resume..";
