@@ -44,13 +44,16 @@ class LoginTextField extends StatelessWidget {
           suffixIcon: suffixIcon,
           //hintText: hintText,
           labelText: labelText,
-          labelStyle: labelStyle ?? AppTextStyle.regularBlack14.copyWith(color: AppColors.greyColor2),
+          labelStyle: labelStyle ??
+              AppTextStyle.regularBlack14.copyWith(color: AppColors.greyColor2),
           enabled: true,
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(radius), borderSide: BorderSide(color: AppColors.blackColor, width: 1.2)),
+              borderRadius: BorderRadius.circular(radius),
+              borderSide: BorderSide(color: AppColors.blackColor, width: 1.2)),
           // constraints: const BoxConstraints(maxWidth: 380),
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(radius), borderSide: BorderSide(color: AppColors.blackColor, width: 5))),
+              borderRadius: BorderRadius.circular(radius),
+              borderSide: BorderSide(color: AppColors.blackColor, width: 5))),
     );
   }
 }
@@ -66,6 +69,7 @@ class CommonTextField extends StatelessWidget {
   final bool? obSecure;
   final String? Function(String?)? validation;
   final TextStyle? labelStyle;
+  final TextStyle? style;
   final TextStyle? hintStyle;
   final FocusNode? focusNode;
   final double? radius;
@@ -90,6 +94,7 @@ class CommonTextField extends StatelessWidget {
       this.width,
       this.maxLine,
       this.isReadOnly,
+      this.style,
       this.onTap,
       this.onChanged});
 
@@ -105,20 +110,25 @@ class CommonTextField extends StatelessWidget {
           onChanged: onChanged,
           onTap: onTap,
           controller: controller,
-          style: AppTextStyle.regularBlack12,
+          style: style ?? AppTextStyle.regularBlack12,
           cursorColor: AppColors.blackColor,
           cursorWidth: 1,
           readOnly: isReadOnly ?? false,
-          maxLines: maxLine,
+          maxLines: maxLine ?? 1,
           decoration: InputDecoration(
               isDense: true,
-              contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               hintStyle: AppTextStyle.regularBlack12,
               hintText: hintText,
               filled: true,
               fillColor: AppColors.lightGrey,
-              focusedBorder: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(4)),
-              enabledBorder: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(4))),
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(4)),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(4))),
         ));
   }
 }
